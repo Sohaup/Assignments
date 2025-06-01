@@ -10,8 +10,13 @@ var h2Container = document.getElementById("quoteCont");
 var previousRandom = null;
 function displayQuote() {    
     h2Container.innerHTML = "";
-    var randome = Math.random() * quotes.length;    
-    
+
+    do {
+        var randome = Math.random() * quotes.length;  
+        console.log(previousRandom)
+    } while (Math.floor(randome) == previousRandom);     
+    previousRandom = Math.floor(randome);
+
     setTimeout(function () {
         h2Container.innerHTML = 
         `
